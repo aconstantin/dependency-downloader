@@ -1,0 +1,18 @@
+// -- may be refactored into plugin: start
+defaultTasks 'download'
+
+repositories {
+jcenter()
+}
+
+configurations { download }
+
+task download(type:Copy) {
+		from configurations.download
+		into "$buildDir/download"
+}
+// -- may be refactored into plugin: end
+
+dependencies {
+    download 'org.slf4j:slf4j-simple:1.7.21'
+}
